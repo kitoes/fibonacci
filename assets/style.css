@@ -1,0 +1,28 @@
+*{
+
+}
+
+body{
+	background: radial-gradient(circle, rgba(115,115,115,1) 0%, rgba(41,41,42,1) 100%);
+	background-image: url("fondo.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+input{
+	font-size: 1.8rem !important;
+	text-align: center;
+}
+
+button{
+	font-size: 1.2rem !important;
+}
+
+footer{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Fibonacci</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/style.css">
+	<link rel="icon" type="image/x-icon" href="assets/fibonacci.png">
+</head>
+<body>
+	<nav>
+		<img src="assets/fibonacci.png" width="4%" class="m-3">
+	</nav>
+	<h1 class="display-3 text-center text-light mt-3">Sucesión de Fibonacci</h1>
+	<div class="p-3 m-3">
+		<div class="col-4 offset-4 form-group text-center">
+			<label class="h3 text-light" for="limite">Ingresa el límite para la sucesión</label>
+			
+			<input class="form-control p-1" type="number" name="limite" id="limite">
+			<span class="err text-warning"></span>
+		</div>
+		
+		<div class="col-1 d-grid gap-2 mx-auto">
+			<button type="button" class="btn btn-primary btn-lg mt-4 mostrar">Mostrar</button>
+		</div>
+
+
+		<div class="col-6 offset-3 form-group text-center">
+			<div class="card mt-5 mb-5" style="width: 100%;">
+			  <div class="card-body">
+			    <h3 class="card-title">Resultado</h3>
+			    <h4 class="card-subtitle mb-2 text-muted lim">Límite:</h4>
+			    <p class="card-text h2 resultado">
+			    	
+			    </p>
+			  </div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="footer bg-dark mt-5 p-2">
+       	<div class="container">
+	      <div class="text-light text-center">
+	        I.S.C. Esteban Sebastian Llanas
+	      </div>
+	      <div class="text-light text-center">
+	        Reto Desarrollo Fibonacci - Overcast
+	      </div>
+	    </div>
+  </footer><!-- End Footer -->
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var limite;
+		//obtener evento del click
+		$(".mostrar").on("click", function(){
+			//obtener el valor y evaluarlo
+			limite=$("#limite").val();
+			if(limite>1){
+				$(".err").text("");
+				//generar variables necesarias para la funcion
+				var f1,f2,f3,res;
+				f1=1;
+				f2=1;
+				res=""+f1+", "+f2;
+				for (var i = 2; i <limite; i++) {
+					//obtener el nuevo valor y agregarlo
+					f3=f1+f2;
+					f1=f2;
+					f2=f3;
+					res+=", "+f2;
+				}
+				//Mostrar el resultado
+				$(".resultado").text(res);
+				$(".lim").text("Límite: "+limite);
+			}else{
+				$(".err").text("El numero debe ser mas de 1");
+				$(".lim").text("Límite: ");				
+				$(".resultado").text("");
+			}
+		});
+
+	});
+</script>
